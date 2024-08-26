@@ -1,4 +1,7 @@
 # ts-node-grpc
+
+## Generate ts files from proto file using the command in 
+
 Just a quick example of a gRPC server made with typescript and node js! [Video link](https://youtu.be/0cxEVcALoxc)
 It contains 4 different examples:
 1. Unary
