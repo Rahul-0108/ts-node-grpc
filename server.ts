@@ -32,7 +32,7 @@ const todoList: TodoResponse = {todos :[] }
 function getServer() {
   const server = new grpc.Server()
   server.addService(randomPackage.Random.service, {
-    PingPong: (req, res) => {
+    PingPong: (req, res) => { 
       console.log(req.request)
       res(null, {message: "Pong"})
     },
@@ -43,7 +43,7 @@ function getServer() {
       let runCount = 0
       const id = setInterval(() => {
         runCount = ++runCount
-        call.write({num: Math.floor(Math.random() * maxVal)})
+        call.write({num: Math.floor(Math.random() * maxVal)}) // one num at a  time
 
         if(runCount >= 10) {
           clearInterval(id)
@@ -51,7 +51,7 @@ function getServer() {
         }
       }, 500)
     },
-    TodoList: (call, callback) => {
+    TodoList: (call, callback) => { // call is for request, callback is for response
       call.on("data", (chunk: TodoRequest) => {
         todoList.todos?.push(chunk)
         console.log(chunk)
